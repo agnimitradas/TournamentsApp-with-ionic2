@@ -1,0 +1,52 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-card center text center>
+        <ion-row>
+            <ion-col>
+                <h3 padding>Division: {{team.division}}</h3>
+                <h3 padding>Coach: {{team.coach}}</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col width-75>
+                <h2 padding>Add to Favourite</h2>
+            </ion-col>
+            <ion-col width-25>
+                <ion-toggle padding item-right (ionChange)="addToFavourites(team)" [(ngModel)]="isFollowing" checked="isFollowing"></ion-toggle>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+    <ion-card>
+        <ion-list>
+            <ion-card-header>
+                <h1>Previous Matches</h1>
+            </ion-card-header>
+            <ion-row>
+                <ion-col>
+                    <ion-item *ngFor="let game of allGames" (click)="gameClicked($event,game)">
+                        <ion-row>
+                            <ion-col width-20>
+                                <p>{{game.time | date:'M/d/yy'}}</p>
+                                <p>{{game.time | date:'shortTime'}}</p>
+                            </ion-col>
+                            <ion-col width-70>
+                                <p>{{game.opponent}}</p>
+                            </ion-col>
+                            <ion-col width-10>
+                                <ion-badge item-right [color]="getWinOrLossClass(game)">{{winOrLossBadge(game)}}</ion-badge>
+                            </ion-col>
+                        </ion-row>
+                        <!--{{game.opponent}}<span style="float: right">{{game.scoreDisplay}}</span>-->
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+    </ion-card>
+</ion-content>

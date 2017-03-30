@@ -1,0 +1,16 @@
+<ion-header>
+
+    <ion-navbar color="danger">
+        <ion-title>{{tournamentDetails.name}} Teams</ion-title>
+    </ion-navbar>
+
+    <ion-navbar>
+        <ion-searchbar placeholder="Search your Teams here" [(ngModel)]="searchKey" (ionInput)="updateTeams(teamsDetails)"></ion-searchbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <button ion-item (click)="itemTapped($event,teamDetails)" *ngFor="let teamDetails of teamsDetails">
+            {{teamDetails.name}}
+    </button>
+</ion-content>

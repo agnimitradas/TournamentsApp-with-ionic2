@@ -1,0 +1,25 @@
+<!--
+  Generated template for the Tournament page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="danger">
+        <ion-title>Pick a Tournament</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-list-header>
+            <h2>Availabe Tournaments</h2>
+        </ion-list-header>
+        <button *ngFor="let tournament of tournaments" ion-item (click)="itemTapped($event,tournament)">
+            {{tournament.name}}
+        </button>
+    </ion-list>
+</ion-content>

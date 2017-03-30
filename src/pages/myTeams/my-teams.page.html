@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>My Teams</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content center text-center>
+
+    <ion-card *ngIf="!favTeams">
+        <img src="http://sites.wrk.ru/sites/uk/co/co/tiscali/myweb/theblackhole/allpages/j-smile_wow/lgeoops.jpg">
+        <ion-card-content>
+            <h1 text-uppercase> No Teams for now to Display</h1>
+        </ion-card-content>
+        <!--<ion-note>
+            11h ago
+        </ion-note>-->
+    </ion-card>
+
+    <ion-card *ngIf="favTeams">
+        <ion-card-content>
+            <ion-list>
+                <ion-list-header>
+                    <h2>My Favourite Teams</h2>
+                </ion-list-header>
+                <button ion-item *ngFor="let favTeam of favTeams" (click)="favTeamTapped(favTeam)">
+                    <ion-icon name="star"></ion-icon>  {{favTeam.team.name}}
+                    <p>{{favTeam.tournamentName}}</p>
+                </button>
+            </ion-list>
+        </ion-card-content>
+        <ion-note right>
+            Tap individuals to get more info
+        </ion-note>
+    </ion-card>
+
+    <div padding>
+        <h6>To Find more news and details about teams and Tournaments</h6>
+    </div>
+    <div class="col text-center">
+        <button full center ion-button round (click)="goToTournaments()"><ion-icon name="search"></ion-icon>Find a Tournament</button>
+    </div>
+
+</ion-content>

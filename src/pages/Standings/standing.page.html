@@ -1,0 +1,27 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+
+    </ion-card>
+    <ion-card>
+        <ion-row>
+            <ion-col width-50>Team</ion-col>
+            <ion-col width-15>W</ion-col>
+            <ion-col width-15>L</ion-col>
+            <ion-col width-20>Points Diff</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let tourney of tournamentData">
+            <ion-col width-50>{{tourney.teamName}}</ion-col>
+            <ion-col width-15>{{tourney.wins}}</ion-col>
+            <ion-col width-15>{{tourney.losses}}</ion-col>
+            <ion-col width-20>{{tourney.pointsDiff}}</ion-col>
+        </ion-row>
+    </ion-card>
+</ion-content>
